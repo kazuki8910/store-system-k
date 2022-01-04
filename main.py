@@ -1,6 +1,7 @@
 from rq import Queue
 from worker import conn
 from bottle import route, run
+import os
 
 
 q = Queue(connection=conn)

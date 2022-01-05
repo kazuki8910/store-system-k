@@ -208,7 +208,7 @@ ws_kikan.values_update(
     params={
         'valueInputOption': 'USER_ENTERED'
     },
-    body={'values': list(csv.reader(open(file_path_kikan)))}
+    body={'values': list(csv.reader(open(file_path_kikan, encoding='cp932')))}
 )
 
 print("CSVアップロード")

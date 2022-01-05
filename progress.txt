@@ -1,18 +1,5 @@
-普通のリクエストだとタイムアウトになるからバックグランドプロセスで実行する。
-「heroku バックグランドプロセス selenium」とかで検索する。
-ワーカージョブとかも関連ワード
-
-異常値でドライバークローズの処理（裏で開きっぱなしになるのを防ぐ）
-
-このサイト参考にワーカーの導入してみる
-https://qiita.com/serinuntius/items/5d6d560ff75f7b42f92d
-
-Procfileの書き方が悪いっぽい
-定期実行のやり方も調べてみる
- →https://qiita.com/seigo-pon/items/ca9951dac0b7fa29cce0
-
-テラテイルで相談
- https://teratail.com/
-
 普通に実行でいいかも
 https://qiita.com/seigo-pon/items/ca9951dac0b7fa29cce0
+
+CSVファイルエンコードでつまってる
+https://qiita.com/Louis23fc/items/e41733416957408c93fb

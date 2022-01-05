@@ -13,3 +13,6 @@ Procfileの書き方が悪いっぽい
 
 テラテイルで相談
  https://teratail.com/
+
+普通に実行でいいかも
+https://qiita.com/seigo-pon/items/ca9951dac0b7fa29cce0

@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
 ####################
 # 
 # モジュール
@@ -22,8 +16,8 @@ import csv
 import os
 import datetime
 
+print("モジュールのインポート完了")
 
-# In[2]:
 
 
 ####################
@@ -52,8 +46,8 @@ this_year  = this_time.year  # 今の年
 this_month = this_time.month # 今の月
 sheet_name_this_month = str(this_year) + "年" + str(this_month) + "月" # 今月のシート名
 
+print("変数の定義完了")
 
-# In[3]:
 
 
 ####################
@@ -91,8 +85,8 @@ def delete_file(path):
     if(os.path.isfile(path)):
         os.remove(path)
 
+print("関数の定義完了")
 
-# In[4]:
 
 
 ####################
@@ -135,8 +129,8 @@ def exsit_sheet(sheets, sheet_name):
             return False
     return True
 
+print("シートapiの設定完了")
 
-# In[5]:
 
 
 ####################
@@ -144,10 +138,6 @@ def exsit_sheet(sheets, sheet_name):
 # メイン動作
 # 
 ####################
-
-
-# In[6]:
-
 
 ####################
 # クロームの起動設定
@@ -169,48 +159,47 @@ options.add_experimental_option("prefs", {
     "plugins.always_open_pdf_externally": True
 })
 
+try:
+    # クローム起動
+    driver = webdriver.Chrome(options=options)
+    driver.set_window_size(1280, 720)
+    time.sleep(1)
 
-# In[7]:
-
-
-# クローム起動
-driver = webdriver.Chrome(options=options)
-driver.set_window_size(1280, 720)
-time.sleep(1)
-
-
-# In[8]:
+    print("クローム起動")
 
 
-# 基幹システムログイン
-driver.get(url_kikan) # 基幹システムにアクセス
-time.sleep(1)
 
-input_text_by_id(input_mail_id_kikan, mail_kikan) #メールアドレス入力
-input_text_by_id(input_pass_id_kikan, pass_kikan) #パスワード入力
-click_by_xpath(xpath_login_btn) # ログインボタンクリック
+    # 基幹システムログイン
+    driver.get(url_kikan) # 基幹システムにアクセス
+    time.sleep(1)
 
+    input_text_by_id(input_mail_id_kikan, mail_kikan) #メールアドレス入力
+    input_text_by_id(input_pass_id_kikan, pass_kikan) #パスワード入力
+    click_by_xpath(xpath_login_btn) # ログインボタンクリック
 
-# In[9]:
-
-
-# CSVダウンロード
-click_by_xpath(xpath_reserve_elm) # 予約/問合せをクリック
-delete_file(file_path_kikan) # 既存のCSV削除
-click_by_xpath(xpath_csv_btn) # CSVダウンロードクリック
-time.sleep(5)
-driver.quit() # ブラウザ終了
+    print("基幹システムログイン")
 
 
-# In[10]:
+
+    # CSVダウンロード
+    click_by_xpath(xpath_reserve_elm) # 予約/問合せをクリック
+    delete_file(file_path_kikan) # 既存のCSV削除
+    click_by_xpath(xpath_csv_btn) # CSVダウンロードクリック
+    time.sleep(5)
+    print("csvダウンロード完了")
+
+finally:
+    driver.quit() # ブラウザ終了
+    print("ブラウザ閉じる")
+
+
 
 
 # シートが存在しなかったら今月のシート追加
 if(exsit_sheet(sheets_kikan, sheet_name_this_month)):
     ws_kikan.add_worksheet(title=sheet_name_this_month, rows=1, cols=1)
+    print("今月のシート追加")
 
-
-# In[11]:
 
 
 # CSVをシートにアップロード
@@ -222,9 +211,5 @@ ws_kikan.values_update(
     body={'values': list(csv.reader(open(file_path_kikan)))}
 )
 
-
-# In[ ]:
-
-
-
-
+print("CSVアップロード")
+print("終了")

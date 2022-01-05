@@ -8,4 +8,8 @@
 https://qiita.com/serinuntius/items/5d6d560ff75f7b42f92d
 
 Procfileの書き方が悪いっぽい
-再度「heroku バックグランドプロセス selenium」とかで検索する
+定期実行のやり方も調べてみる
+ →https://qiita.com/seigo-pon/items/ca9951dac0b7fa29cce0
+
+テラテイルで相談
+ https://teratail.com/

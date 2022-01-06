@@ -1,5 +1,0 @@
-普通に実行でいいかも
-https://qiita.com/seigo-pon/items/ca9951dac0b7fa29cce0
-
-CSVファイルエンコードでつまってる
-https://qiita.com/Louis23fc/items/e41733416957408c93fb

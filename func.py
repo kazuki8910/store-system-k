@@ -1,3 +1,5 @@
+# 関数を定義
+
 ####################
 # 
 # モジュール
@@ -13,7 +15,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 
 ####################
 # 
-# 関数
+# スプシ関連
 # 
 ####################
 

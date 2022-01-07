@@ -18,6 +18,7 @@ import datetime
 
 # 自作モジュール
 import func
+import conf
 
 print("モジュールのインポート完了")
 
@@ -98,8 +99,7 @@ print("関数の定義完了")
 # 
 ####################
 
-sheet_key_kikan = "1rlaJptyRr-MkbLejSakF9zK1vdLoP6pMAhYcoj6p7dI" # 基幹シートのシートキー
-ws_kikan = func.connect_gspread(sheet_key_kikan) # 基幹シート
+ws_kikan = func.connect_gspread(conf.sheet_key_kikan) # 基幹シート
 sheets_kikan = ws_kikan.worksheets() # 基幹シートのワークシート一覧
 
 # シート名が存在するか検証

@@ -45,10 +45,10 @@ xpath_csv_btn     ='/html/body/main/div/form/input[3]'# CSV出力ボタン
 file_path_kikan = "data/reservations.csv" # CSVの保存先パス
 
 # 日付関連
-this_time  = datetime.datetime.now() # 今の時間
-this_year  = this_time.year  # 今の年
-this_month = this_time.month # 今の月
-sheet_name_this_month = str(this_year) + "年" + str(this_month) + "月" # 今月のシート名
+today      = datetime.date.today() # 今日の日付
+this_year  = str(today.year)[2:4]  # 年
+this_month = str(today.month)      # 月
+sheet_name_this_month = this_year + "年" + this_month + "月" # 元データのシート名
 
 print("変数の定義完了")
 

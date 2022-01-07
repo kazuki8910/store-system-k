@@ -6,3 +6,4 @@ https://docs.google.com/spreadsheets/d/1rlaJptyRr-MkbLejSakF9zK1vdLoP6pMAhYcoj6p
 
 ▼集客表のデータ反映シート
 https://docs.google.com/spreadsheets/d/1p8zfjMPWjGaV-HkkC-AE-o5nYBx5f8WiUNCtPno6XIw/edit#gid=0
+

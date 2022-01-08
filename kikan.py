@@ -4,7 +4,10 @@
 # In[1]:
 
 
-# 基幹データ反映
+# 基幹データ取り込み
+
+
+# In[2]:
 
 
 ####################
@@ -23,7 +26,7 @@ import conf
 print("モジュールのインポート完了")
 
 
-# In[2]:
+# In[3]:
 
 
 ####################
@@ -32,36 +35,22 @@ print("モジュールのインポート完了")
 # 
 ####################
 
-# 基幹システム関連
+# 基幹システムのログインURL
 url_kikan  = "https://stlassh.com/admin/" #URL
 
+# ログイン関連
 mail_kikan = "info@stlassh.com" #メールアドレス
 pass_kikan = "2sYsLpebQ3sx"     #PASS
 input_mail_id_kikan = 'user_email'    #メールアドレスのインプットタグのID
 input_pass_id_kikan = 'user_password' #パスワードのインプットタグのID
 xpath_login_btn = '//*[@id="new_user"]/div[3]/input' #ログインボタンのXPath
 
-xpath_reserve_elm = '/html/body/main/div/div[1]/a'    # 予約/問合せの要素
-xpath_csv_btn     ='/html/body/main/div/form/input[3]'# CSV出力ボタン
-
+# ダウンロード関連
+xpath_reserve_elm = '/html/body/main/div/div[1]/a'    # 予約/問合せの要素のXpath
+xpath_csv_btn     ='/html/body/main/div/form/input[3]'# CSV出力ボタンXpath
 file_path_kikan = "data/reservations.csv" # CSVの保存先パス
 
 print("変数の定義完了")
-
-
-# In[3]:
-
-
-####################
-# 
-# 基幹シートにアクセス
-# 
-####################
-
-ws_kikan = func.connect_gspread(conf.sheet_key_kikan) # 基幹シート
-sheets_kikan = ws_kikan.worksheets() # 基幹シートのワークシート一覧
-
-print("シートapiの設定完了")
 
 
 # In[4]:
@@ -69,7 +58,7 @@ print("シートapiの設定完了")
 
 ####################
 # 
-# メイン動作
+# 基幹からデータダウンロード
 # 
 ####################
 try:
@@ -97,27 +86,37 @@ finally:
     print("ブラウザ閉じる")
 
 
-# シートが存在しなかったら今月のシート追加
-if(func.exsit_sheet(sheets_kikan, conf.sheet_name_this_month)):
-    ws_kikan.add_worksheet(title=conf.sheet_name_this_month, rows=1, cols=1)
-    print("今月のシート追加")
+# In[5]:
 
+
+####################
+# 
+# シートにデータ反映
+# 
+####################
+
+# 分析シートがない場合、新規作成
+func.creat_new_ana_sheet()
+
+# 分析シートキー取得
+sheet_key_ana = func.get_ana_key()
+
+# 分析シートにアクセス
+wb_ana = func.connect_gspread(sheet_key_ana) # 分析
+
+# 基幹シートが存在しなかったら今月のシート追加
+sheets_ana = wb_ana.worksheets() # 基幹シートのワークシート一覧
+sheet_name = "基幹"
+if(func.exsit_sheet(sheets_ana, sheet_name)):
+    wb_ana.add_worksheet(title=sheet_name, rows=1, cols=1)
+    print("基幹シート追加")
 
 # CSVをシートにアップロード
-func.upload_csv(ws_kikan, conf.sheet_name_this_month+'!A1', file_path_kikan)
-
+func.upload_csv(wb_ana, sheet_name+'!A1', file_path_kikan)
 print("CSVアップロード")
+
+# 「data」ディレクトリのデータ削除
+func.delete_data_files()
+
 print("終了")
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
 

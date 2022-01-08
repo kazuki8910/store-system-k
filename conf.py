@@ -20,12 +20,37 @@ import datetime
 ####################
 
 # 今日の日付関連
-today      = datetime.date.today() # 今日の日付
-this_year  = str(today.year)[2:4]  # 年
-this_month = str(today.month)      # 月
+today        = datetime.date.today() # 今日の日付
+this_year    = str(today.year)[2:4]  # 年
+this_month   = str(today.month)      # 月
 
-# 今月のシート名
-sheet_name_this_month = this_year + "年" + this_month + "月"
+# 月（二桁）
+if(len(this_month) == 1):
+    this_month_d = "0" + this_month
+else:
+    this_month_d = this_month
+
+# 今月の分析シートのファイル名
+book_name_ana = this_year + "年" + this_month_d + "月"
+
+# 今月の集客表のシート名
+sheet_name_syukyaku = this_year + "年" + this_month + "月"
+
+
+
+
+####################
+# 
+# GoogleAPI関連
+# 
+####################
+
+# APIサービスアカウントキーのファイルパス
+google_api_filepath = 'config/google_api.json'
+
+# スコープ
+google_api_scope = ['https://spreadsheets.google.com/feeds',
+                    'https://www.googleapis.com/auth/drive']
 
 
 
@@ -36,11 +61,10 @@ sheet_name_this_month = this_year + "年" + this_month + "月"
 # 
 ####################
 
-# 基幹反映シートのシートキー
-sheet_key_kikan = "1rlaJptyRr-MkbLejSakF9zK1vdLoP6pMAhYcoj6p7dI"
+# データを保管してるドライブのキー
+drive_folder_key = '1rpxNAZqFJQQNnVpkSPzO90UyY8YDOYx-'
 
-# 集客表元データのシートキー
-sheet_key_syukyaku_origin = "1u95ZTRxAF64RM1t4Gyi3RYv_OcuazVgGg8cHhARFxbA"
-
-# 集客表のシートキー
-sheet_key_syukyaku = "1p8zfjMPWjGaV-HkkC-AE-o5nYBx5f8WiUNCtPno6XIw"
+# 設定シートのキー
+sheet_key_conf = "1jZuWdgPxpk6aIEf50a2tCaoVPq7cUgX8y3NVkTfG6rk"
+# 設定シートのシート名
+sheet_name_conf = "シートキー"

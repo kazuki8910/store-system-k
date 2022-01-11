@@ -114,8 +114,13 @@ def creat_new_ana_sheet():
     else:
         print("分析シートはすでに存在します")
 
+
 # 設定シートから分析シートのキーを取得
 def get_ana_key():
+    # 分析シートがない場合作成
+    creat_new_ana_sheet()
+
+    # シートキー取得
     wb_conf = connect_gspread(conf.sheet_key_conf)
     ws_conf = wb_conf.worksheet(conf.sheet_name_conf)
     rows_ws_conf = len(ws_conf.get_all_values())

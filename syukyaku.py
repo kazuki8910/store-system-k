@@ -4,7 +4,10 @@
 # In[1]:
 
 
-# 集客表反映
+# 集客表のデータ取得
+
+
+# In[2]:
 
 
 ########################
@@ -26,7 +29,7 @@ import conf
 print("モジュールのインポート完了")
 
 
-# In[2]:
+# In[3]:
 
 
 ########################
@@ -36,11 +39,11 @@ print("モジュールのインポート完了")
 ########################
 
 # 集客表元データのシートにアクセス
-ws_origin = func.connect_gspread(conf.sheet_key_syukyaku_origin) # 基幹シート
-sheet_origin = ws_origin.worksheet(conf.sheet_name_this_month)
+wb_origin = func.connect_gspread(conf.sheet_key_03)       # 03シートにアクセス
+ws_origin = wb_origin.worksheet(conf.sheet_name_syukyaku) # 今月の集客表取得
 
 # 元データ取得
-df_origin = pd.DataFrame(sheet_origin.get_all_values()) # 元データ取得
+df_origin = pd.DataFrame(ws_origin.get_all_values()) # 元データ取得
 df_origin = df_origin.drop(index=df_origin.index[[0,1,2]], columns=df_origin.columns[[0,1,12,13]]) # 不要行列削除
 
 # カラム名つける
@@ -75,6 +78,7 @@ df_origin = df_origin.reindex(columns=[
     "入金金額"
 ])
 
+# 空欄データを除去
 df_origin = df_origin[df_origin['成果識別ID'] != ""]   # ID空白除去
 df_origin = df_origin[df_origin['成果識別ID'] != "ID"] # 「ID」の文字列除去
 df_origin = df_origin.sort_values('成果識別ID')        # ID順に並び替え
@@ -83,7 +87,7 @@ df_origin = df_origin.reset_index(drop=True)           # 番号振り直し
 print("顧客データの整形完了")
 
 
-# In[3]:
+# In[4]:
 
 
 ########################
@@ -92,44 +96,24 @@ print("顧客データの整形完了")
 # 
 ########################
 
+# 分析シートキー取得
+sheet_key_ana = func.get_ana_key()
+
+# 分析シートにアクセス
+wb_ana = func.connect_gspread(sheet_key_ana)
+
+# 集客表シートが存在しなかったら今月のシート追加
+sheets_ana = wb_ana.worksheets() # 集客表シートのワークシート一覧
+sheet_name = "集客表"
+if(func.exsit_sheet(sheets_ana, sheet_name)):
+    wb_ana.add_worksheet(title=sheet_name, rows=1, cols=1)
+    print("集客表シート追加")
+
 # 集客表シートにアクセス
-ws_syukyaku = func.connect_gspread(conf.sheet_key_syukyaku) # 集客表シート
-sheets_syukyaku = ws_syukyaku.worksheets() # 集客表シートのワークシート一覧
-
-# シートが存在しなければ追加
-if(func.exsit_sheet(sheets_syukyaku, conf.sheet_name_this_month)):
-    ws_syukyaku.add_worksheet(title=conf.sheet_name_this_month, rows=1, cols=1)
-    print("今月のシート追加")
-
-# 今月のシートにアクセス
-sheet_this_month = ws_syukyaku.worksheet(conf.sheet_name_this_month)
+ws_syukyaku = wb_ana.worksheet(sheet_name)
 
 # データフレームをスプシに反映
-set_with_dataframe(sheet_this_month, df_origin)
+set_with_dataframe(ws_syukyaku, df_origin)
 
 print("集客表シートへの反映完了")
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
 

@@ -95,9 +95,6 @@ finally:
 # 
 ####################
 
-# 分析シートがない場合、新規作成
-func.creat_new_ana_sheet()
-
 # 分析シートキー取得
 sheet_key_ana = func.get_ana_key()
 

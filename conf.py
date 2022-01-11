@@ -68,3 +68,6 @@ drive_folder_key = '1rpxNAZqFJQQNnVpkSPzO90UyY8YDOYx-'
 sheet_key_conf = "1jZuWdgPxpk6aIEf50a2tCaoVPq7cUgX8y3NVkTfG6rk"
 # 設定シートのシート名
 sheet_name_conf = "シートキー"
+
+#03シートのシートキー
+sheet_key_03 = "1u95ZTRxAF64RM1t4Gyi3RYv_OcuazVgGg8cHhARFxbA"

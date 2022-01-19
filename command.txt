@@ -1,0 +1,29 @@
+Gitにプッシュ
+git add .
+git commit -m "Comment"
+git push origin main
+
+Gitからプル
+git pull origin main
+
+アナコンダ仮想環境リスト確認
+conda info -e
+
+仮想環境作成
+conda create -n [環境名]
+
+仮想環境移動
+conda activate [環境名]
+
+仮想環境削除
+conda deactivate
+conda env remove -n [環境名]
+
+仮想環境設定ファイル書き出し
+conda env export > [ファイル名].yml
+
+仮想環境ファイルから新しい仮想環境作成
+conda env create -n [環境名] -f [ファイル名].yml
+
+jupyter labにカーネルを追加
+python -m ipykernel install --user --name=[環境名]

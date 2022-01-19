@@ -6,6 +6,11 @@
 ・syukyaku：集客表データ取り込み
 
 
+◆Chromeのバージョン
+Windows：97.0.4692.71
+MAC：
+
+
 ▼権限付与するメールアドレス
 kazuki@store-system-k.iam.gserviceaccount.com
 

@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[2]:
+# In[1]:
 
 
 # 成果確認シートの内容取得
 
 
-# In[3]:
+# In[2]:
 
 
 ####################
@@ -30,7 +30,7 @@ import func
 print("モジュールインポート")
 
 
-# In[4]:z
+# In[3]:
 
 
 ####################
@@ -44,6 +44,10 @@ today = dt.date.today()
 this_year  = str(today.year)
 this_month = str(today.month)
 sheet_name_seika = this_year + "年" + this_month + "月成果" 
+
+# 月末月初取得
+beginning_day = dt.datetime.combine(today.replace(day=1), dt.time())             # 月初の日付
+end_day       = dt.datetime(today.year, today.month+1, 1) - dt.timedelta(days=1) # 月末の日付
 
 # 成果確認シートの情報
 sheets_info = [
@@ -76,7 +80,7 @@ sheets_info = [
 print("変数定義完了")
 
 
-# In[5]:
+# In[4]:
 
 
 ####################
@@ -84,11 +88,6 @@ print("変数定義完了")
 # 成果シートの情報取得
 # 
 ####################
-
-
-# In[6]:
-
-
 # データを格納するDataframe
 df_seika_sum = pd.DataFrame()
 
@@ -137,7 +136,7 @@ for info in sheets_info:
 
     # 該当しない日付を削除
     df_seika['成果発生日'] = pd.to_datetime(df_seika['成果発生日'], format='%Y/%m/%d') # 成果発生日の列を日付型に変換
-    df_seika = df_seika[(df_seika['成果発生日'] >= dt.datetime(2022,1,1)) & (df_seika['成果発生日'] <= dt.datetime(2022,1,31))] # 該当する日付を抽出
+    df_seika = df_seika[(df_seika['成果発生日'] >= beginning_day) & (df_seika['成果発生日'] <= end_day)] # 該当する日付を抽出
     df_seika.reset_index(drop=True, inplace=True) # 行番号振り直し
 
     # データ出力
@@ -147,7 +146,7 @@ for info in sheets_info:
 print("データ出力完了")
 
 
-# In[8]:
+# In[5]:
 
 
 ########################
@@ -176,36 +175,6 @@ ws = wb_ana.worksheet(sheet_name)
 set_with_dataframe(ws, df_seika_sum)
 
 print("成果シートへの反映完了")
-
-
-# In[29]:
-
-
-
-
-
-# In[28]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
 
 
 # In[ ]:

@@ -62,8 +62,19 @@ df_origin = df_origin.rename(columns={
     15:"年齢"
 })
 
+# 空欄データを除去
+df_origin = df_origin[df_origin['成果識別ID'] != ""]   # ID空白除去
+df_origin = df_origin[df_origin['成果識別ID'] != "ID"] # 「ID」の文字列除去
+df_origin = df_origin.sort_values('成果識別ID')        # ID順に並び替え
+df_origin = df_origin.reset_index(drop=True)           # 番号振り直し
+
+# 番号振る
+serial_num = pd.RangeIndex(start=1, stop=len(df_origin.index) + 1, step=1)
+df_origin['No'] = serial_num
+
 # 列の並び替え
 df_origin = df_origin.reindex(columns=[
+    "No",
     "成果識別ID",
     "名前",
     "年齢",
@@ -78,16 +89,10 @@ df_origin = df_origin.reindex(columns=[
     "入金金額"
 ])
 
-# 空欄データを除去
-df_origin = df_origin[df_origin['成果識別ID'] != ""]   # ID空白除去
-df_origin = df_origin[df_origin['成果識別ID'] != "ID"] # 「ID」の文字列除去
-df_origin = df_origin.sort_values('成果識別ID')        # ID順に並び替え
-df_origin = df_origin.reset_index(drop=True)           # 番号振り直し
-
 print("顧客データの整形完了")
 
 
-# In[4]:
+# In[5]:
 
 
 ########################

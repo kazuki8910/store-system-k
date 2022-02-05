@@ -68,6 +68,9 @@ df_origin = df_origin[df_origin['成果識別ID'] != "ID"] # 「ID」の文字�
 df_origin = df_origin.sort_values('成果識別ID')        # ID順に並び替え
 df_origin = df_origin.reset_index(drop=True)           # 番号振り直し
 
+# 問合せ順に並び替え
+df_origin = df_origin.sort_values('問合せ日')
+
 # 番号振る
 serial_num = pd.RangeIndex(start=1, stop=len(df_origin.index) + 1, step=1)
 df_origin['No'] = serial_num
@@ -92,7 +95,7 @@ df_origin = df_origin.reindex(columns=[
 print("顧客データの整形完了")
 
 
-# In[5]:
+# In[4]:
 
 
 ########################
@@ -121,4 +124,10 @@ ws_syukyaku = wb_ana.worksheet(sheet_name)
 set_with_dataframe(ws_syukyaku, df_origin)
 
 print("集客表シートへの反映完了")
+
+
+# In[ ]:
+
+
+
 

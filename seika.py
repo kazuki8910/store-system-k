@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[ ]:
 
 
 # 成果確認シートの内容取得
 
 
-# In[2]:
+# In[ ]:
 
 
 ####################
@@ -17,6 +17,7 @@
 ####################
 
 # 一般
+import re
 import datetime as dt
 import pandas as pd
 
@@ -30,7 +31,7 @@ import func
 print("モジュールインポート")
 
 
-# In[3]:
+# In[ ]:
 
 
 ####################
@@ -88,7 +89,7 @@ sheets_info = [
 print("変数定義完了")
 
 
-# In[4]:
+# In[ ]:
 
 
 ####################
@@ -154,7 +155,16 @@ for info in sheets_info:
 print("データ出力完了")
 
 
-# In[5]:
+# In[ ]:
+
+
+# グロスを数値型に変換
+def to_num(string):
+    return int(re.sub("\¥|\,","",string))
+df_seika_sum["グロス(税込)"] = df_seika_sum["グロス(税込)"].map(to_num)
+
+
+# In[ ]:
 
 
 ########################
@@ -183,10 +193,4 @@ ws = wb_ana.worksheet(sheet_name)
 set_with_dataframe(ws, df_seika_sum)
 
 print("成果シートへの反映完了")
-
-
-# In[ ]:
-
-
-
 

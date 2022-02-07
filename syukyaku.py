@@ -1,15 +1,16 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+# In[ ]:
+
+
+#!/usr/bin/env python
+# coding: utf-8
+
 # In[1]:
 
 
 # 集客表のデータ取得
-
-
-# In[2]:
-
-
 ########################
 # 
 # モジュール
@@ -18,6 +19,7 @@
 
 # 一般モジュール
 import pandas as pd
+import re
 
 # スプシ関連
 from gspread_dataframe import set_with_dataframe
@@ -64,9 +66,9 @@ df_origin = df_origin.rename(columns={
 
 # 空欄データを除去
 df_origin = df_origin[df_origin['成果識別ID'] != ""]   # ID空白除去
-df_origin = df_origin[df_origin['成果識別ID'] != "ID"] # 「ID」の文字列除去
+df_origin = df_origin[df_origin['成果識別ID'] != "ID"] # ｢ID｣の文字列除去
 df_origin = df_origin.sort_values('成果識別ID')        # ID順に並び替え
-df_origin = df_origin.reset_index(drop=True)           # 番号振り直し
+df_origin = df_origin.reset_index(drop=True)          # 番号振り直し
 
 # 問合せ順に並び替え
 df_origin = df_origin.sort_values('問合せ日')
@@ -95,7 +97,21 @@ df_origin = df_origin.reindex(columns=[
 print("顧客データの整形完了")
 
 
-# In[4]:
+# In[ ]:
+
+
+# 入金、契約金を数値型に変換
+def to_num(string):
+    try:
+        cost = int(re.sub("\¥|\,","",string))
+    except:
+        cost = ""
+    return cost
+df_origin["契約金額"] = df_origin["契約金額"].map(to_num)
+df_origin["入金金額"] = df_origin["入金金額"].map(to_num)
+
+
+# In[ ]:
 
 
 ########################
@@ -124,6 +140,9 @@ ws_syukyaku = wb_ana.worksheet(sheet_name)
 set_with_dataframe(ws_syukyaku, df_origin)
 
 print("集客表シートへの反映完了")
+
+
+# In[ ]:
 
 
 # In[ ]:

@@ -160,7 +160,11 @@ print("データ出力完了")
 
 # グロスを数値型に変換
 def to_num(string):
-    return int(re.sub("\¥|\,","",string))
+    try:
+        cost = int(re.sub("\¥|\,","",string))
+    except:
+        cost = ""
+    return cost
 df_seika_sum["グロス(税込)"] = df_seika_sum["グロス(税込)"].map(to_num)
 
 

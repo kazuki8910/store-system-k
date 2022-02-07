@@ -74,6 +74,14 @@ sheets_info = [
     {
         "name":"FA",
         "key" :"1qxvzPJn3c84VCfWrrKLdO03wc6fhauKdTjEqqYhyUNU"
+    },
+    {
+        "name":"パフォーマンステクノロジー",
+        "key" :"1ULCaCoNvoWCAW7khU5fqZIgVFt5ZWibYB0GvP2wQ3fc"
+    },
+    {
+        "name":"クラン",
+        "key" :"1wZGNHbgyoEQDGqWiePYSWOboR5xOLW8_nSalkTB716s"
     }
 ]
 

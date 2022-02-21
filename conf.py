@@ -62,10 +62,10 @@ google_api_scope = ['https://spreadsheets.google.com/feeds',
 ####################
 
 # データを保管してるドライブのキー
-drive_folder_key = '1AdlKbTp6gR6dfoVl94no6vPJJ5mM44tl'
+drive_folder_key = '1rpxNAZqFJQQNnVpkSPzO90UyY8YDOYx'
 
 # 設定シートのキー
-sheet_key_conf = "1jZuWdgPxpk6aIEf50a2tCaoVPq7cUgX8y3NVkTfG6rk"
+sheet_key_conf = "1kvGW49-FnnlWf05FTs0ybDcqXIakycdyFf3cmnuXLus"
 # 設定シートのシート名
 sheet_name_conf = "シートキー"
 

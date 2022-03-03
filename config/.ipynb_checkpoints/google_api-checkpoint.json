@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "store-system-k",
+  "private_key_id": "dd08f2f3585dfc90d3bde785a4ae86004fda9650",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDTKyZsQG++uFzv\nFvD2SEoHFS+yv+YMSIbGJA8my3UoTQn4SGrvJFzUvfcqZ4EHol1KmzJPXVuKwqkl\nwhb/9t9i4dwlTxV9f+M78ykt8DXQpA1h6mPyv0o9Kdv750m1ybO59GzaxQ37vVGd\n19rjBA0xtBjuCIr5eu4JoRQlbkmxQqWWoabOKxY/m4W+oaS7jZXUz0WLa14t6tz6\nAP6lx1ByN6VDkRz9rNzts1B/duMhu26Gr75tiRi1Z2SclYLzq6DGN1BRcSvkib9w\nrywPDXUDCIQH1N7hTyWKXDyDnn4luUYkAvH49mbfUC9Lq5O3wdZchn+wkCC+t6+1\nmuDxN4n9AgMBAAECggEAAKGsZ755lxRuErj614G31vWVQu+X/Ilq/cS11uPc4dX5\nJajxyO1O6cP3rUTJ+f/eT47PQ7V/xJZ4cwh1kSZn3J/YTLRD2DA9ubwsb1q8jncv\nIw/UZLF1w2EQq1wxuD12MCQu/yh/tjUGvXYbzXoBoBhtyqhz4fMgKx80NDh0N/d9\nqi1rouVLJ1xLan9Zv22AieWinPLOzqgU8FTrllOibdQqQ0oqzZRgz4zpMVeZwoVx\nW9VDEL0sKDHXBpB/DVbXdCQLnvBzpBb/Sl9wi7bIRXsRjX1W1Irlym/jRJIFbcbu\nVKLwzIlkA6Dg+Cn/ml0ngrwBBq7A6O7KZb/lrsDdcQKBgQD7YcY/mkgIF2VMlV+9\nLQh5UEo30HPkP0HXbDeiwpbJLc9eTHC6B0+mvp1+qfErShKGhRdmnN31okvXgxlb\nxFYPWmHAP8DMyHpIH0L8mwJVs9aSWSH0IHJGouox2ZeyoGul1I8Q8c1i/GeIEtOp\nIxpgjUgygljPZV+rz0quDjtJxwKBgQDXDEGGIv+5tf5aFfhw/TbJtezgj1Ccl0uC\nZsl2/lQc3cD5T2GSUD/3lVOK+Q66S6PWqpSOq8lQTzF3rGUkyZhzZ0OWnqfG5F6k\njIzx3Wkuo6YlMsIsNsTs1ZRi4c/wWwmRM6t5OIuPndL5c6kzQBK534z7TdnPJX12\nIgKSsKMuGwKBgGPLR+l99PSJXSSO9CfklcWbMyt/LFLDLf84LcoGV9fbwMPdsq6X\nMm6uo1ViX6RgzoPqmASbZ54Y5OTUXZ/JjKShq8anSIHDYI/7IRuo6b9eGmOU0N7a\ndqNGD5Tknc1C1BlMDdObOn7+Vpd1aeNuVQ1ZaPzsNBd5VgadzzbT3YOHAoGBAJm7\nrj/5Vz1pCItYN4J20qsCvnOOoL9BPX7cglvp1zHHqcPQ5tzVN9WDz/SCte+iUV8O\nFSOlVUZvRtrZyHizEaQ2h0/u3dxGuA4EWGIzuZTY8taW4c7/3Gm/CdRiv+eA/Wbr\nPENtk/+4gPFJqQT1Yi20zbF95x66G2XPTG2XjyBPAoGANahm7Sc5F8vH3acnLw6t\ni2Ib0ZmSUUOAmU7TDLb3oYZ7h/MI3vkpjZO3MGJ0fxy4edPNjCN3Ij9y7WfmMeWh\n07QIkeWKe9vXHXI1LAIaMxGT+TFyAZclZBuh4s0QozUYpHCBEvZUkQr2ejnZEm7f\n3S+AwjPwNAabskuTnZhjXNM=\n-----END PRIVATE KEY-----\n",
+  "client_email": "kazuki@store-system-k.iam.gserviceaccount.com",
+  "client_id": "114890013088552944220",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/kazuki%40store-system-k.iam.gserviceaccount.com"
+}

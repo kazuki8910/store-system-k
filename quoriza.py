@@ -56,7 +56,7 @@ print("変数の定義完了")
 try:
     
     # クローム起動
-    driver = func.start_chrome()
+    driver = func.start_chrome(False)
 
     # ログイン画面にアクセス
     driver.get(url_quoriza)
